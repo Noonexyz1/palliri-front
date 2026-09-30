@@ -1,0 +1,163 @@
+<div
+  class="min-h-screen bg-white text-slate-900 transition-colors duration-300 dark:bg-black dark:text-slate-100 flex flex-col justify-between font-sans">
+
+  <!-- Header / Navbar -->
+  <header class="w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo y Nombre de la Fundación -->
+      <div class="flex items-center space-x-3">
+        <div
+          class="w-11 h-11 rounded-xl bg-black text-white font-black text-xl flex items-center justify-center border-2 border-orange-500 shadow-sm">
+          FP
+        </div>
+        <div>
+          <span class="text-xl font-black tracking-tight text-black dark:text-white block leading-none">
+            Fundación <span class="text-orange-500">Palliri</span>
+          </span>
+          <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-1">
+            Sistema Unificado de Gestión de Infancia
+          </span>
+        </div>
+      </div>
+
+      <!-- Acciones del Header -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+
+        <!-- Toggle Modo Oscuro -->
+        <button
+          type="button"
+          class="p-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-slate-200 dark:border-slate-800 cursor-pointer"
+          aria-label="Alternar modo oscuro">
+          <!-- Ícono Sol / Luna -->
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+
+        <!-- Botón Iniciar Sesión Header -->
+        <button
+          type="button"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-black hover:bg-slate-900 dark:bg-orange-500 dark:hover:bg-orange-600 transition-all shadow-md cursor-pointer border border-slate-800 dark:border-orange-600">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+          </svg>
+          Iniciar Sesión
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero & Presentación -->
+  <main class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center space-y-8">
+
+      <!-- Badge Institucional -->
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+        Plataforma Unificada de Seguimiento Infantil
+      </div>
+
+      <!-- Título Principal -->
+      <div class="space-y-4">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-black dark:text-white tracking-tight leading-none">
+          Fundación <span class="text-orange-500">Palliri</span>
+        </h1>
+        <p class="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200">
+          Sistema Unificado de Gestión y Acompañamiento
+        </p>
+        <p
+          class="max-w-3xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed pt-2">
+          Garantice el bienestar, desarrollo integral y seguimiento en tiempo real de cada niño, niña y familia
+          beneficiaria dentro de los centros y programas de la institución.
+        </p>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button
+          type="button"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold text-white bg-orange-500 hover:bg-orange-600 shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center">
+          Acceder al Sistema
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+
+        <a
+          href="#que-hacemos"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold text-black dark:text-white bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all text-center">
+          ¿Qué hace el Sistema?
+        </a>
+      </div>
+
+      <!-- Módulos / ¿Qué hace la Fundación Palliri con este sistema? -->
+      <div id="que-hacemos" class="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+
+        <!-- Tarjeta 1 -->
+        <div
+          class="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 transition-colors">
+          <div
+            class="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center mb-4 shadow-md font-bold">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white mb-2">Expediente Infantil 360°</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Mantiene la información médica, académica, familiar y psicológica de cada niño unificada en un solo
+            historial digital y seguro.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div
+          class="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 transition-colors">
+          <div
+            class="w-12 h-12 rounded-xl bg-black dark:bg-slate-800 text-white flex items-center justify-center mb-4 shadow-md font-bold border border-slate-700">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white mb-2">Control Nutricional y Salud</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Seguimiento riguroso de peso, talla, esquema de vacunación y registro diario de raciones alimenticias
+            servidas en los Comedores Infantiles.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div
+          class="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 transition-colors">
+          <div
+            class="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center mb-4 shadow-md font-bold">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white mb-2">Asistencia y Talleres</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Monitoreo en tiempo real de la asistencia a reforzamiento escolar, actividades culturales y talleres de
+            orientación técnica para padres.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-6">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
+      <p>© 2026 Fundación Palliri — Sistema Unificado de Gestión de Infancia.</p>
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:text-black dark:hover:text-white transition-colors">Soporte</a>
+        <a href="#" class="hover:text-black dark:hover:text-white transition-colors">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
