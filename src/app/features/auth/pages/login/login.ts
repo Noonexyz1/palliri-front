@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Icono } from '../../../../shared/components/icono/icono';
 import { ModalService } from '../../../../shared/components/modales/modal-layout/modal.service';
+import { ThemeToggle } from '../../../../shared/components/theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, Icono],
+  imports: [FormsModule, Icono, ThemeToggle],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
