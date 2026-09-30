@@ -1,0 +1,55 @@
+@if (modalService.modalData(); as data) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in">
+    <div
+      class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl max-w-md w-full relative">
+
+      <!-- CASO 1: CARGANDO -->
+      @if (data.tipo === 'cargando') {
+        <div class="text-center space-y-4">
+          <div class="flex justify-center">
+            <!--            <app-icono name="loader" colorIcono="text-blue-500" [isBordered]="false"></app-icono>-->
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">{{ data.titulo }}</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">{{ data.mensaje }}</p>
+        </div>
+      }
+
+      <!-- CASO 2: ADVERTENCIA -->
+      @if (data.tipo === 'advertencia') {
+        <div class="flex items-start gap-4">
+          <!--          <app-icono name="alert" colorIcono="text-amber-500" [isBordered]="true"></app-icono>-->
+          <div class="space-y-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">{{ data.titulo }}</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{{ data.mensaje }}</p>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button (click)="data.onConfirmar?.()"
+                  class="w-full sm:w-auto px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm rounded-xl cursor-pointer">
+            {{ data.textoConfirmar }}
+          </button>
+        </div>
+      }
+
+      <!-- CASO 3: CONFIRMACIÓN -->
+      @if (data.tipo === 'confirmacion') {
+        <div class="flex items-center gap-3 mb-4">
+          <!--          <app-icono name="help" colorIcono="text-rose-500" [isBordered]="true"></app-icono>-->
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">{{ data.titulo }}</h3>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">{{ data.mensaje }}</p>
+        <div class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+          <button (click)="data.onCancelar?.()"
+                  class="px-4 py-2.5 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-bold text-sm rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer">
+            {{ data.textoCancelar }}
+          </button>
+          <button (click)="data.onConfirmar?.()"
+                  class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm rounded-xl cursor-pointer">
+            {{ data.textoConfirmar }}
+          </button>
+        </div>
+      }
+
+    </div>
+  </div>
+}
