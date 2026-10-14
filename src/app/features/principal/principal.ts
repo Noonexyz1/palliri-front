@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeToggle } from '../../shared/components/theme-toggle/theme-toggle';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -7,4 +8,10 @@ import { ThemeToggle } from '../../shared/components/theme-toggle/theme-toggle';
   templateUrl: './principal.html',
   styleUrl: './principal.css',
 })
-export class Principal {}
+export class Principal {
+  constructor(private router: Router) {}
+
+  iniciarSesion() {
+    this.router.navigate(['/auth/login']);
+  }
+}
