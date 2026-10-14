@@ -1,3 +1,45 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* 1. Definición de variables de color con la paleta Palliri */
+@theme {
+  /* Marca principal (Naranja Arcilla) */
+  --color-brand-primary: #E05A36;
+  --color-brand-primary-hover: #C84A28;
+
+  /* Marca secundaria / Institucional (Azul) */
+  --color-brand-secondary: #1E3A8A;
+
+  /* Acentos de estado */
+  --color-brand-accent: #10B981;
+
+  /* Colores semánticos para el tema */
+  --color-app-bg: #F8F9FA;
+  --color-app-surface: #FFFFFF;
+  --color-app-text: #1F2937;
+  --color-app-text-muted: #6B7280;
+  --color-app-border: #E5E7EB;
+}
+
+/* 2. Sobrescritura de variables semánticas para Modo Oscuro */
+.dark {
+  /* En dark mode, el naranja se vuelve un poco más vivo para dar buen contraste */
+  --color-brand-primary: #FF7A59;
+  --color-brand-primary-hover: #E05A36;
+
+  --color-brand-secondary: #38BDF8;
+
+  /* Fondos oscuros (Azul Pizarra) */
+  --color-app-bg: #0F172A;
+  --color-app-surface: #1E293B;
+  --color-app-text: #F1F5F9;
+  --color-app-text-muted: #94A3B8;
+  --color-app-border: #334155;
+}
+
+/* 3. Estilos base del documento */
+body {
+  background-color: var(--color-app-bg);
+  color: var(--color-app-text);
+}
