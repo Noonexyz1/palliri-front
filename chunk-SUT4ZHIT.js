@@ -1,0 +1,1 @@
+import"./chunk-2NFLSA4Y.js";var t=[{path:"",redirectTo:"dashboard",pathMatch:"full"},{path:"dashboard",loadComponent:()=>import("./chunk-YA6DNDJT.js").then(o=>o.Dashboard)}];export{t as adminLayoutRoutes};
