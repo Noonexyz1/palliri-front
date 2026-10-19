@@ -9,14 +9,19 @@
       </svg>
     </button>
 
-    <div>
-      <h1 class="text-xl font-bold text-[var(--color-brand-secondary)] dark:text-white">
-        Panel de Gestión Psicosocial
-      </h1>
-      <p class="text-xs text-[var(--color-app-text-muted)]">
-        Fundación Palliri • El Alto
-      </p>
+    <div class="flex items-center gap-3">
+      <!-- LOGO MODO CLARO (se oculta cuando .dark está activo) -->
+      <div class="flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl dark:hidden">
+        <img src="/logo_palliri.png" alt="Logo Fundación Palliri" class="w-full h-full object-contain" />
+      </div>
+
+      <!-- LOGO MODO OSCURO (oculto por defecto, se muestra como 'flex' cuando .dark está activo) -->
+      <div class="hidden dark:flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl">
+        <img src="/logo_palliri_dark.png" alt="Logo Fundación Palliri Modo Oscuro"
+             class="w-full h-full object-contain" />
+      </div>
     </div>
+
   </div>
 
   <div class="flex items-center gap-3">
