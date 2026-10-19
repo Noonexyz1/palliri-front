@@ -5,19 +5,16 @@
   <header class="w-full bg-app-surface border-b border-app-border sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
-      <!-- Logo y Nombre de la Fundación -->
-      <div class="flex items-center space-x-3">
-        <div
-          class="w-11 h-11 rounded-xl bg-brand-secondary text-white font-black text-xl flex items-center justify-center border-2 border-brand-primary shadow-sm">
-          FP
+      <div class="flex items-center gap-3">
+        <!-- LOGO MODO CLARO (se oculta cuando .dark está activo) -->
+        <div class="flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl dark:hidden">
+          <img src="/logo_palliri.png" alt="Logo Fundación Palliri" class="w-full h-full object-contain" />
         </div>
-        <div>
-          <span class="text-xl font-black tracking-tight text-app-text block leading-none">
-            Fundación <span class="text-brand-primary">Palliri</span>
-          </span>
-          <span class="text-xs font-bold text-app-text-muted uppercase tracking-wider block mt-1">
-            Sistema Unificado de Gestión de Infancia
-          </span>
+
+        <!-- LOGO MODO OSCURO (oculto por defecto, se muestra como 'flex' cuando .dark está activo) -->
+        <div class="hidden dark:flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl">
+          <img src="/logo_palliri_dark.png" alt="Logo Fundación Palliri Modo Oscuro"
+               class="w-full h-full object-contain" />
         </div>
       </div>
 
