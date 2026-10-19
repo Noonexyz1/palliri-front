@@ -32,11 +32,15 @@ export const adminLayoutRoutes: Routes = [
   },
   {
     path: 'asignacion-laboral',
-    loadComponent: () => import('../pages/asignacion-laboral/asignacion-laboral').then((m) => m.AsignacionLaboral),
+    loadComponent: () =>
+      import('../pages/asignacion-laboral/asignacion-laboral').then((m) => m.AsignacionLaboral),
   },
   {
     path: 'centro-area',
-    loadComponent: () =>
-      import('../pages/centro-area/centro-area').then((m) => m.CentroArea),
+    loadComponent: () => import('../pages/centro-area/centro-area').then((m) => m.CentroArea),
+  },
+  {
+    path: 'ajuste',
+    loadComponent: () => import('../pages/ajuste/ajuste').then((m) => m.Ajuste),
   },
 ];
