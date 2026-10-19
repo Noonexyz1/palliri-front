@@ -34,4 +34,9 @@ export const adminLayoutRoutes: Routes = [
     path: 'asignacion-laboral',
     loadComponent: () => import('../pages/asignacion-laboral/asignacion-laboral').then((m) => m.AsignacionLaboral),
   },
+  {
+    path: 'centro-area',
+    loadComponent: () =>
+      import('../pages/centro-area/centro-area').then((m) => m.CentroArea),
+  },
 ];
