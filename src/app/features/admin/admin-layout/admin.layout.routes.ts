@@ -18,4 +18,8 @@ export const adminLayoutRoutes: Routes = [
     path: 'ficha-estudiante',
     loadComponent: () => import('../pages/ficha-estudiante/ficha-estudiante').then((m) => m.FichaEstudiante),
   },
+  {
+    path: 'actividad-extracurricular',
+    loadComponent: () => import('../pages/actividad-extracurricular/actividad-extracurricular').then((m) => m.ActividadExtracurricular),
+  },
 ];
