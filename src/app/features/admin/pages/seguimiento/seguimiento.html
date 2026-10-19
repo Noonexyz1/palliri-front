@@ -1,0 +1,279 @@
+<!--TARJETAS DE RESUMEN-->
+<div class="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-3">
+  <!-- TOTAL EN SEGUIMIENTO -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Casos Activos
+        </p>
+        <h3 class="mt-1 text-2xl font-extrabold text-[var(--color-app-text)]">
+          28
+        </h3>
+      </div>
+      <div class="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </div>
+    </div>
+    <p class="mt-2 text-xs text-[var(--color-app-text-muted)]">
+      Atención continua este trimestre
+    </p>
+  </div>
+
+  <!-- SESIONES REALIZADAS -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Sesiones este Mes
+        </p>
+        <h3 class="mt-1 text-2xl font-extrabold text-[var(--color-app-text)]">
+          45
+        </h3>
+      </div>
+      <div class="p-3 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)]">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H3a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </div>
+    </div>
+    <p class="mt-2 text-xs text-[var(--color-brand-accent)] font-medium">
+      +12% en comparación al mes anterior
+    </p>
+  </div>
+
+  <!-- CASOS PRIORITARIOS -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Atención Prioritaria
+        </p>
+        <h3 class="mt-1 text-2xl font-extrabold text-[var(--color-brand-primary)]">
+          4
+        </h3>
+      </div>
+      <div class="p-3 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+    </div>
+    <p class="mt-2 text-xs text-[var(--color-app-text-muted)]">
+      Requieren intervención semanal
+    </p>
+  </div>
+</div>
+
+<!-- =========================
+     BARRA DE BÚSQUEDA Y FILTROS
+========================== -->
+<div class="p-4 mb-6 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+  <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+
+    <!-- BÚSQUEDA -->
+    <div class="relative flex-1">
+      <div
+        class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none text-[var(--color-app-text-muted)]">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input type="text"
+             class="w-full p-2.5 ps-10 text-xs text-[var(--color-app-text)] bg-[var(--color-app-bg)] border border-[var(--color-app-border)] rounded-lg focus:ring-1 focus:ring-[var(--color-brand-primary)] focus:border-[var(--color-brand-primary)] transition-colors"
+             placeholder="Buscar estudiante por nombre, CI o código..." />
+    </div>
+
+    <!-- FILTROS -->
+    <div class="flex flex-wrap items-center gap-2">
+      <select
+        class="p-2.5 text-xs text-[var(--color-app-text)] bg-[var(--color-app-bg)] border border-[var(--color-app-border)] rounded-lg focus:ring-1 focus:ring-[var(--color-brand-primary)]">
+        <option value="">Todos los Tipos</option>
+        <option value="clinica">Evaluación Psicopedagógica</option>
+        <option value="familiar">Visita Domiciliaria</option>
+        <option value="conductual">Seguimiento Conductual</option>
+      </select>
+
+      <select
+        class="p-2.5 text-xs text-[var(--color-app-text)] bg-[var(--color-app-bg)] border border-[var(--color-app-border)] rounded-lg focus:ring-1 focus:ring-[var(--color-brand-primary)]">
+        <option value="">Estado del Caso</option>
+        <option value="activo">Activo</option>
+        <option value="prioritario">Prioritario</option>
+        <option value="cerrado">Cerrado / Concluido</option>
+      </select>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
+     TABLA DE SEGUIMIENTOS
+========================== -->
+<div class="bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm overflow-hidden">
+  <div class="p-4 border-b border-[var(--color-app-border)] flex items-center justify-between">
+    <h2 class="text-base font-bold text-[var(--color-app-text)]">
+      Histórico de Registros de Seguimiento
+    </h2>
+    <span class="text-xs text-[var(--color-app-text-muted)]">
+        Mostrando 3 de 128 registros
+      </span>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-xs text-left text-[var(--color-app-text)]">
+      <thead
+        class="text-[10px] uppercase tracking-wider bg-[var(--color-app-bg)] text-[var(--color-app-text-muted)] border-b border-[var(--color-app-border)]">
+      <tr>
+        <th class="px-6 py-3.5">Estudiante</th>
+        <th class="px-6 py-3.5">Tipo de Informe</th>
+        <th class="px-6 py-3.5">Fecha de Sesión</th>
+        <th class="px-6 py-3.5">Nivel de Prioridad</th>
+        <th class="px-6 py-3.5">Atendido por</th>
+        <th class="px-6 py-3.5 text-end">Acciones</th>
+      </tr>
+      </thead>
+      <tbody class="divide-y divide-[var(--color-app-border)]">
+
+      <!-- FILA 1 -->
+      <tr class="hover:bg-[var(--color-brand-primary)]/5 transition-colors">
+        <td class="px-6 py-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] font-bold text-xs">
+              MC
+            </div>
+            <div>
+              <p class="font-bold text-[var(--color-app-text)]">Mateo Quispe Condori</p>
+              <p class="text-[10px] text-[var(--color-app-text-muted)]">CI: 9876543 • Centro El Alto</p>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="px-2.5 py-1 text-[10px] font-semibold text-blue-800 bg-blue-100 dark:bg-blue-900/40 dark:text-blue-300 rounded-md">
+                Evaluación Psicopedagógica
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          18 Oct 2026
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold text-red-700 bg-red-100 dark:bg-red-900/40 dark:text-red-300 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span> Alta
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          Lic. Ana Martínez
+        </td>
+        <td class="px-6 py-4 text-end space-x-2">
+          <button class="font-semibold text-[var(--color-brand-primary)] hover:underline">Ver Ficha</button>
+          <button class="font-semibold text-[var(--color-brand-secondary)] dark:text-sky-400 hover:underline">Editar
+          </button>
+        </td>
+      </tr>
+
+      <!-- FILA 2 -->
+      <tr class="hover:bg-[var(--color-brand-primary)]/5 transition-colors">
+        <td class="px-6 py-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-600 font-bold text-xs">
+              LV
+            </div>
+            <div>
+              <p class="font-bold text-[var(--color-app-text)]">Luz Mamani Vargas</p>
+              <p class="text-[10px] text-[var(--color-app-text-muted)]">CI: 1234567 • Centro El Alto</p>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="px-2.5 py-1 text-[10px] font-semibold text-emerald-800 bg-emerald-100 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-md">
+                Visita Domiciliaria
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          15 Oct 2026
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold text-amber-700 bg-amber-100 dark:bg-amber-900/40 dark:text-amber-300 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Media
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          Lic. Ana Martínez
+        </td>
+        <td class="px-6 py-4 text-end space-x-2">
+          <button class="font-semibold text-[var(--color-brand-primary)] hover:underline">Ver Ficha</button>
+          <button class="font-semibold text-[var(--color-brand-secondary)] dark:text-sky-400 hover:underline">Editar
+          </button>
+        </td>
+      </tr>
+
+      <!-- FILA 3 -->
+      <tr class="hover:bg-[var(--color-brand-primary)]/5 transition-colors">
+        <td class="px-6 py-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/10 text-purple-600 font-bold text-xs">
+              JR
+            </div>
+            <div>
+              <p class="font-bold text-[var(--color-app-text)]">Joel Ramos Flores</p>
+              <p class="text-[10px] text-[var(--color-app-text-muted)]">CI: 7654321 • Centro El Alto</p>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="px-2.5 py-1 text-[10px] font-semibold text-purple-800 bg-purple-100 dark:bg-purple-900/40 dark:text-purple-300 rounded-md">
+                Seguimiento Conductual
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          10 Oct 2026
+        </td>
+        <td class="px-6 py-4">
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 bg-emerald-100 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Normal
+              </span>
+        </td>
+        <td class="px-6 py-4 font-medium text-[var(--color-app-text-muted)]">
+          Lic. Ana Martínez
+        </td>
+        <td class="px-6 py-4 text-end space-x-2">
+          <button class="font-semibold text-[var(--color-brand-primary)] hover:underline">Ver Ficha</button>
+          <button class="font-semibold text-[var(--color-brand-secondary)] dark:text-sky-400 hover:underline">Editar
+          </button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGINACIÓN -->
+  <div
+    class="p-4 border-t border-[var(--color-app-border)] flex items-center justify-between text-xs text-[var(--color-app-text-muted)]">
+    <span>Página 1 de 13</span>
+    <div class="flex gap-2">
+      <button disabled
+              class="px-3 py-1.5 rounded border border-[var(--color-app-border)] opacity-50 cursor-not-allowed">Anterior
+      </button>
+      <button
+        class="px-3 py-1.5 rounded border border-[var(--color-app-border)] hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
+        Siguiente
+      </button>
+    </div>
+  </div>
+
+</div>
