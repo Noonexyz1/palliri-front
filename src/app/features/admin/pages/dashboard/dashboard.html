@@ -1,1508 +1,362 @@
-<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
-
-  <!-- BACKDROP (Fondo oscuro para móviles cuando el sidebar está abierto) -->
-  @if (isSidebarOpen) {
-    <div (click)="mostrarMenuAside()" class="fixed inset-0 z-40 bg-black/50 lg:hidden transition-opacity">
-    </div>
-  }
-
-  <!-- =========================
-     SIDEBAR
-  ========================== -->
-  <aside [ngClass]="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-         class="fixed top-0 left-0 z-50 w-64 h-screen transition-transform duration-300 lg:translate-x-0"
-         aria-label="Sidebar">
-
-    <div
-      class="h-full px-3 py-4 overflow-y-auto bg-[var(--color-app-surface)] border-r border-[var(--color-app-border)]">
-
-      <!-- LOGO INSTITUCIONAL PALLIRI -->
-      <a (click)="cerrarSidebarOpcion()" href="#" class="flex items-center ps-2.5 mb-6">
-        <div
-          class="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)]">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9" />
-          </svg>
-        </div>
-        <div class="flex flex-col ml-3">
-                <span
-                  class="text-lg font-bold tracking-wide text-[var(--color-brand-secondary)] dark:text-white leading-tight">
-                    Fundación Palliri
-                </span>
-          <span class="text-xs font-medium text-[var(--color-brand-primary)]">
-                    Panel Administrativo
-                </span>
-        </div>
-      </a>
-
-      <!-- TARJETA DE PERFIL Y ASIGNACIÓN LABORAL -->
-      <div class="p-3 mb-5 rounded-xl bg-[var(--color-app-bg)] border border-[var(--color-app-border)]">
-        <div class="flex items-center">
-          <div class="relative">
-            <img class="w-10 h-10 rounded-full object-cover border-2 border-[var(--color-brand-primary)]"
-                 src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                 alt="Foto del colaborador">
-            <span
-              class="absolute bottom-0 right-0 w-3 h-3 bg-[var(--color-brand-accent)] border-2 border-white rounded-full dark:border-gray-800">
-                    </span>
-          </div>
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-semibold text-[var(--color-app-text)] truncate">
-              Lic. Ana Martínez
-            </p>
-            <p class="text-xs text-[var(--color-brand-primary)] font-medium truncate">
-              Psicóloga Senior
-            </p>
-            <p class="text-[10px] text-[var(--color-app-text-muted)] truncate">
-              Área Psicología • Centro El Alto
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- MENÚ PRINCIPAL -->
-      <ul class="space-y-1.5 font-medium">
-
-        <!-- DASHBOARD / INICIO -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-brand-primary)] rounded-lg bg-[var(--color-brand-primary)]/10 font-semibold">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-            <span class="ms-3">Inicio</span>
-          </a>
-        </li>
-
-        <!-- SECCIÓN: ATENCIÓN Y SEGUIMIENTO -->
-        <li class="pt-2 pb-1">
-                <span class="px-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-app-text-muted)]">
-                    Atención Psicosocial
-                </span>
-        </li>
-
-        <!-- SEGUIMIENTO DE ESTUDIANTES -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            <span class="ms-3">Seguimientos</span>
-            <span
-              class="inline-flex items-center justify-center px-2 py-0.5 ms-auto text-xs font-semibold text-[var(--color-brand-primary)] bg-[var(--color-brand-primary)]/10 rounded-full">
-                        Nuevo
-                    </span>
-          </a>
-        </li>
-
-        <!-- EXPEDIENTES / ESTUDIANTES -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-            <span class="ms-3">Fichas de Estudiantes</span>
-          </a>
-        </li>
-
-        <!-- SECCIÓN: ACTIVIDADES Y COMUNIDAD -->
-        <li class="pt-2 pb-1">
-                <span class="px-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-app-text-muted)]">
-                    Proyectos y Campo
-                </span>
-        </li>
-
-        <!-- ACTIVIDADES Y EVENTOS -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H3a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="ms-3">Actividades Extracurriculares</span>
-          </a>
-        </li>
-
-        <!-- VIAJES Y SALIDAS DE CAMPO -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11a2 2 0 012-2h1.065" />
-            </svg>
-            <span class="ms-3">Viajes y Talleres</span>
-          </a>
-        </li>
-
-        <!-- SECCIÓN: INSTITUCIONAL Y RRHH -->
-        <li class="pt-2 pb-1">
-                <span class="px-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-app-text-muted)]">
-                    Mi Puesto y Organización
-                </span>
-        </li>
-
-        <!-- MI PUESTO / CONTRATO -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m-4 3h16v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-            </svg>
-            <span class="ms-3">Mi Asignación Laboral</span>
-          </a>
-        </li>
-
-        <!-- CENTROS Y ÁREAS (VISTA INFORMATIVA/ORGANIGRAMA) -->
-        <li>
-          <a (click)="cerrarSidebarOpcion()" href="#"
-             class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] transition-colors">
-            <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9" />
-            </svg>
-            <span class="ms-3">Centros y Áreas</span>
-          </a>
-        </li>
-
-      </ul>
-
-      <!-- CONFIGURACIÓN Y SESIÓN -->
-      <div class="pt-4 mt-4 border-t border-[var(--color-app-border)] space-y-1 font-medium">
-        <a (click)="cerrarSidebarOpcion()" href="#"
-           class="flex items-center p-2.5 text-[var(--color-app-text)] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-          <svg class="w-5 h-5 text-[var(--color-app-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-          <span class="ms-3">Ajustes</span>
-        </a>
-
-        <a (click)="cerrarSidebarOpcion()" href="#"
-           class="flex items-center p-2.5 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
-          <span class="ms-3">Cerrar sesión</span>
-        </a>
-      </div>
-
-    </div>
-  </aside>
-
-
-  <!-- =========================
-     CONTENIDO PRINCIPAL
-  ========================== -->
-
-  <div class="p-4 transition-all duration-300 lg:ml-64">
-    <!-- TOPBAR -->
-    <nav
-      class="sticky top-4 z-30 flex items-center justify-between p-4 mb-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/60 dark:border-gray-700/60 rounded-lg shadow-md">
-      <div class="flex flex-row gap-2">
-        <!-- BOTÓN MENÚ (Tres barras) -->
-        <div class="flex items-center gap-4">
-          <button (click)="mostrarMenuAside()" type="button"
-                  class="p-2 text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 lg:hidden">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-        <div>
-          <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
-            Panel del estudiante
-          </h1>
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Seguimiento de tu formación y oportunidades profesionales
-          </p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <!-- NOTIFICACIONES -->
-        <button type="button"
-                class="relative inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
+<!--BANNER BIENVENIDA-->
+<div
+  class="p-6 mb-6 bg-gradient-to-r from-[var(--color-brand-secondary)] to-slate-800 rounded-xl shadow-md text-white border border-slate-700">
+  <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
           <span
-            class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-800">
-                        4
-                    </span>
-        </button>
+            class="px-2.5 py-0.5 text-xs font-semibold text-[var(--color-brand-primary)] bg-white/10 rounded-full border border-white/20">
+            Área de Psicología
+          </span>
+        <span class="text-xs text-slate-300">• Centro El Alto</span>
       </div>
-    </nav>
+      <h2 class="text-2xl font-extrabold tracking-tight">
+        ¡Buen día, Lic. Ana Martínez! 👋
+      </h2>
+      <p class="mt-1 text-sm text-slate-200">
+        Tienes 4 casos prioritarios asignados para revisión esta semana.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <button type="button"
+              class="px-4 py-2.5 text-xs font-semibold text-[var(--color-brand-secondary)] bg-white rounded-lg hover:bg-slate-100 transition-colors shadow-sm">
+        Ver Agenda del Día
+      </button>
+    </div>
+  </div>
+</div>
 
+<!--TARJETAS METRICAS-->
+<div class="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2 lg:grid-cols-4">
 
-    <!-- =========================
-     BIENVENIDA
-========================== -->
-    <div class="p-6 mb-6 bg-gradient-to-r from-blue-700 to-indigo-700 border border-blue-600 rounded-lg shadow">
-      <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-        <div>
-          <h2 class="mb-2 text-2xl font-bold text-white">
-            ¡Bienvenido, Juan! 👋
-          </h2>
-          <p class="text-blue-100">
-            Continúa fortaleciendo tu formación y descubre nuevas oportunidades.
-          </p>
-        </div>
-        <button type="button"
-                class="px-5 py-2.5 text-sm font-medium text-blue-700 bg-white rounded-lg hover:bg-blue-50">
-          Completar mi perfil
-        </button>
+  <!-- ESTUDIANTES ATENDIDOS -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Estudiantes a cargo
+        </p>
+        <h3 class="mt-1 text-3xl font-extrabold text-[var(--color-app-text)]">
+          42
+        </h3>
+      </div>
+      <div class="p-3 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)]">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
       </div>
     </div>
+    <p class="mt-3 text-xs text-[var(--color-brand-accent)] font-medium flex items-center gap-1">
+      <span>●</span> Active cases in current term
+    </p>
+  </div>
 
-
-    <!-- =========================
-     TARJETAS RESUMEN
-========================== -->
-    <div class="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2 lg:grid-cols-4">
-      <!-- PROMEDIO -->
-      <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Promedio académico
-            </p>
-            <h3 class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
-              82.5
-            </h3>
-          </div>
-          <div class="p-3 bg-blue-100 rounded-lg dark:bg-blue-900">
-            <svg class="w-6 h-6 text-blue-700 dark:text-blue-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 14l9-5-9-5-9 5 9 5z" />
-            </svg>
-          </div>
-        </div>
-        <p class="mt-3 text-xs text-green-600">
-          Datos sincronizados mediante API
+  <!-- SEGUIMIENTOS REGISTRADOS -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Informes de Seguimiento
         </p>
+        <h3 class="mt-1 text-3xl font-extrabold text-[var(--color-app-text)]">
+          128
+        </h3>
       </div>
-
-      <!-- FORMACIÓN -->
-      <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex items-center justify-between">
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Actividades realizadas
-            </p>
-
-            <h3 class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
-              18
-            </h3>
-
-          </div>
-
-          <div class="p-3 bg-purple-100 rounded-lg dark:bg-purple-900">
-
-            <svg class="w-6 h-6 text-purple-700 dark:text-purple-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13" />
-            </svg>
-
-          </div>
-
-        </div>
-
-        <p class="mt-3 text-xs text-gray-500">
-          Cursos, talleres, seminarios y más
-        </p>
-
+      <div class="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
       </div>
-
-
-      <!-- POSTULACIONES -->
-
-      <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex items-center justify-between">
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Postulaciones
-            </p>
-
-            <h3 class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
-              3
-            </h3>
-
-          </div>
-
-          <div class="p-3 bg-green-100 rounded-lg dark:bg-green-900">
-
-            <svg class="w-6 h-6 text-green-700 dark:text-green-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-            </svg>
-
-          </div>
-
-        </div>
-
-        <p class="mt-3 text-xs text-gray-500">
-          1 en proceso de revisión
-        </p>
-
-      </div>
-
-
-      <!-- OFERTAS -->
-
-      <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex items-center justify-between">
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Nuevas oportunidades
-            </p>
-
-            <h3 class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
-              8
-            </h3>
-
-          </div>
-
-          <div class="p-3 bg-orange-100 rounded-lg dark:bg-orange-900">
-
-            <svg class="w-6 h-6 text-orange-700 dark:text-orange-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745" />
-            </svg>
-
-          </div>
-
-        </div>
-
-        <p class="mt-3 text-xs text-gray-500">
-          Ofertas relacionadas con Psicología
-        </p>
-
-      </div>
-
     </div>
-
-
-    <!-- =========================
-     CONTENIDO PRINCIPAL
-========================== -->
-
-    <div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
-
-
-      <!-- =========================
-     OPORTUNIDADES
-========================== -->
-
-      <div class="xl:col-span-2">
-
-        <div
-          class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="flex items-center justify-between mb-5">
-
-            <div>
-
-              <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-                Oportunidades para ti
-              </h2>
-
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                Cursos, eventos y ofertas laborales relacionados con tu carrera.
-              </p>
-
-            </div>
-
-            <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-              Ver todas
-            </a>
-
-          </div>
-
-
-          <!-- OPORTUNIDAD 1 -->
-
-          <div class="p-4 mb-3 border border-gray-200 rounded-lg dark:border-gray-700">
-
-            <div class="flex items-start justify-between">
-
-              <div class="flex gap-4">
-
-                <div
-                  class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg dark:bg-blue-900">
-
-                  <svg class="w-6 h-6 text-blue-700 dark:text-blue-300" fill="none"
-                       viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 6v12m6-6H6" />
-                  </svg>
-
-                </div>
-
-                <div>
-
-                  <h3 class="font-semibold text-gray-900 dark:text-white">
-                    Taller de Intervención Psicológica
-                  </h3>
-
-                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    Carrera de Psicología
-                  </p>
-
-                  <div class="flex flex-wrap gap-2 mt-2">
-
-                                        <span
-                                          class="px-2.5 py-0.5 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                                            Taller
-                                        </span>
-
-                    <span
-                      class="px-2.5 py-0.5 text-xs font-medium text-gray-800 bg-gray-100 rounded dark:bg-gray-700 dark:text-gray-300">
-                                            20 horas
-                                        </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button type="button" class="text-blue-600 hover:underline">
-                Ver
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <!-- OPORTUNIDAD 2 -->
-
-          <div class="p-4 mb-3 border border-gray-200 rounded-lg dark:border-gray-700">
-
-            <div class="flex items-start justify-between">
-
-              <div class="flex gap-4">
-
-                <div
-                  class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg dark:bg-purple-900">
-
-                  <svg class="w-6 h-6 text-purple-700 dark:text-purple-300" fill="none"
-                       viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H3a2 2 0 002 2v12a2 2 0 002 2z" />
-                  </svg>
-
-                </div>
-
-                <div>
-
-                  <h3 class="font-semibold text-gray-900 dark:text-white">
-                    Seminario de Psicología Organizacional
-                  </h3>
-
-                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    Empresa vinculada con la carrera
-                  </p>
-
-                  <div class="flex flex-wrap gap-2 mt-2">
-
-                                        <span
-                                          class="px-2.5 py-0.5 text-xs font-medium text-purple-800 bg-purple-100 rounded dark:bg-purple-900 dark:text-purple-300">
-                                            Seminario
-                                        </span>
-
-                    <span
-                      class="px-2.5 py-0.5 text-xs font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                            Gratuito
-                                        </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button type="button" class="text-blue-600 hover:underline">
-                Ver
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <!-- OPORTUNIDAD 3 -->
-
-          <div class="p-4 border border-gray-200 rounded-lg dark:border-gray-700">
-
-            <div class="flex items-start justify-between">
-
-              <div class="flex gap-4">
-
-                <div
-                  class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg dark:bg-green-900">
-
-                  <svg class="w-6 h-6 text-green-700 dark:text-green-300" fill="none"
-                       viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745" />
-                  </svg>
-
-                </div>
-
-                <div>
-
-                  <h3 class="font-semibold text-gray-900 dark:text-white">
-                    Auxiliar de Psicología
-                  </h3>
-
-                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    Empresa colaboradora
-                  </p>
-
-                  <div class="flex flex-wrap gap-2 mt-2">
-
-                                        <span
-                                          class="px-2.5 py-0.5 text-xs font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                            Oferta laboral
-                                        </span>
-
-                    <span
-                      class="px-2.5 py-0.5 text-xs font-medium text-gray-800 bg-gray-100 rounded dark:bg-gray-700 dark:text-gray-300">
-                                            La Paz
-                                        </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button type="button"
-                      class="px-3 py-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                Postularme
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
+    <p class="mt-3 text-xs text-[var(--color-app-text-muted)]">
+      +14 registrados este mes
+    </p>
+  </div>
+
+  <!-- ACTIVIDADES Y CAMPOS -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Actividades de Campo
+        </p>
+        <h3 class="mt-1 text-3xl font-extrabold text-[var(--color-app-text)]">
+          6
+        </h3>
       </div>
-
-
-      <!-- =========================
-     PERFIL / NOTIFICACIONES
-========================== -->
-
-      <div class="space-y-6">
-
-
-        <!-- COMPLETAR PERFIL -->
-
-        <div
-          class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-          <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
-            Completa tu perfil
-          </h2>
-
-          <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
-            Mantén actualizada tu información para mejorar tus oportunidades.
-          </p>
-
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-
-            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%">
-            </div>
-
-          </div>
-
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            75% completado
-          </p>
-
-          <button type="button"
-                  class="w-full mt-4 px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-            Completar perfil
-          </button>
-
-        </div>
-
-
-        <!-- TELEGRAM -->
-
-        <div
-          class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="flex items-center gap-3 mb-3">
-
-            <div
-              class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full dark:bg-blue-900">
-
-              <svg class="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor"
-                   viewBox="0 0 24 24">
-                <path
-                  d="M21.5 3.5L2.9 10.7c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.7c.2.6.4.7.8.7.3 0 .5-.1.7-.3l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-15.2c.3-1.4-.5-2-1.8-1.6z" />
-              </svg>
-
-            </div>
-
-            <div>
-
-              <h2 class="font-semibold text-gray-900 dark:text-white">
-                Notificaciones por Telegram
-              </h2>
-
-              <p class="text-xs text-green-600">
-                Conectado
-              </p>
-
-            </div>
-
-          </div>
-
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Recibe avisos de nuevos cursos, talleres, eventos y ofertas laborales.
-          </p>
-
-          <button type="button"
-                  class="w-full mt-4 px-4 py-2 text-sm font-medium text-blue-700 border border-blue-700 rounded-lg hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-gray-700">
-            Configurar Telegram
-          </button>
-
-        </div>
-
-
-        <!-- ENCUESTAS -->
-
-        <div
-          class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="flex items-center justify-between mb-3">
-
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-              Encuestas pendientes
-            </h2>
-
-            <span
-              class="px-2.5 py-0.5 text-xs font-medium text-red-800 bg-red-100 rounded-full dark:bg-red-900 dark:text-red-300">
-                            2
-                        </span>
-
-          </div>
-
-          <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
-            Tienes encuestas pendientes de completar.
-          </p>
-
-          <button type="button"
-                  class="w-full px-4 py-2 text-sm font-medium text-white bg-purple-700 rounded-lg hover:bg-purple-800">
-            Ver encuestas
-          </button>
-
-        </div>
-
+      <div class="p-3 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H3a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
       </div>
-
     </div>
-
-
-    <!-- =========================
-     MI FORMACIÓN
-========================== -->
-
-    <div class="mt-6">
-
-      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex flex-col justify-between gap-3 mb-6 sm:flex-row sm:items-center">
-
-          <div>
-
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-              Mi formación
-            </h2>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Actividades académicas y extracurriculares registradas en tu perfil.
-            </p>
-
-          </div>
-
-          <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-
-            + Agregar formación externa
-
-          </button>
-
-        </div>
-
-
-        <div class="overflow-x-auto">
-
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-
-            <tr>
-
-              <th class="px-6 py-3">
-                Actividad
-              </th>
-
-              <th class="px-6 py-3">
-                Tipo
-              </th>
-
-              <th class="px-6 py-3">
-                Institución
-              </th>
-
-              <th class="px-6 py-3">
-                Fecha
-              </th>
-
-              <th class="px-6 py-3">
-                Origen
-              </th>
-
-              <th class="px-6 py-3">
-                Acción
-              </th>
-
-            </tr>
-
-            </thead>
-
-            <tbody>
-
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-
-              <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                Taller de Psicología Clínica
-              </td>
-
-              <td class="px-6 py-4">
-                Taller
-              </td>
-
-              <td class="px-6 py-4">
-                Carrera de Psicología
-              </td>
-
-              <td class="px-6 py-4">
-                15/08/2026
-              </td>
-
-              <td class="px-6 py-4">
-                                    <span
-                                      class="px-2.5 py-0.5 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                                        Carrera
-                                    </span>
-              </td>
-
-              <td class="px-6 py-4">
-                <button class="font-medium text-blue-600 hover:underline">
-                  Ver
-                </button>
-              </td>
-
-            </tr>
-
-
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-
-              <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                Seminario de Neuropsicología
-              </td>
-
-              <td class="px-6 py-4">
-                Seminario
-              </td>
-
-              <td class="px-6 py-4">
-                UPEA
-              </td>
-
-              <td class="px-6 py-4">
-                20/06/2026
-              </td>
-
-              <td class="px-6 py-4">
-
-                                    <span
-                                      class="px-2.5 py-0.5 text-xs font-medium text-purple-800 bg-purple-100 rounded dark:bg-purple-900 dark:text-purple-300">
-                                        Externa
-                                    </span>
-
-              </td>
-
-              <td class="px-6 py-4">
-
-                <div class="flex gap-3">
-
-                  <button class="font-medium text-blue-600 hover:underline">
-                    Editar
-                  </button>
-
-                  <button class="font-medium text-red-600 hover:underline">
-                    Eliminar
-                  </button>
-
-                </div>
-
-              </td>
-
-            </tr>
-
-
-            <tr class="bg-white dark:bg-gray-800">
-
-              <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                Feria de Salud Mental
-              </td>
-
-              <td class="px-6 py-4">
-                Feria
-              </td>
-
-              <td class="px-6 py-4">
-                Carrera de Psicología
-              </td>
-
-              <td class="px-6 py-4">
-                10/05/2026
-              </td>
-
-              <td class="px-6 py-4">
-
-                                    <span
-                                      class="px-2.5 py-0.5 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                                        Carrera
-                                    </span>
-
-              </td>
-
-              <td class="px-6 py-4">
-
-                <button class="font-medium text-blue-600 hover:underline">
-                  Ver
-                </button>
-
-              </td>
-
-            </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
+    <p class="mt-3 text-xs text-[var(--color-app-text-muted)]">
+      2 talleres programados este fin de semana
+    </p>
+  </div>
+
+  <!-- ASIGNACIÓN / CARGO -->
+  <div class="p-5 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-medium text-[var(--color-app-text-muted)] uppercase tracking-wider">
+          Mi Puesto Actual
+        </p>
+        <h3 class="mt-1 text-lg font-bold text-[var(--color-brand-primary)] truncate">
+          Psicóloga
+        </h3>
       </div>
-
-    </div>
-
-
-    <!-- =========================
-     HISTORIAL ACADÉMICO
-========================== -->
-
-    <div class="grid grid-cols-1 gap-6 mt-6 lg:grid-cols-3">
-
-      <!-- RESUMEN -->
-
-      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <h2 class="mb-5 text-lg font-semibold text-gray-900 dark:text-white">
-          Historial académico
-        </h2>
-
-        <div class="space-y-5">
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Carrera
-            </p>
-
-            <p class="font-medium text-gray-900 dark:text-white">
-              Psicología
-            </p>
-
-          </div>
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Semestre actual
-            </p>
-
-            <p class="font-medium text-gray-900 dark:text-white">
-              7.º semestre
-            </p>
-
-          </div>
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Materias aprobadas
-            </p>
-
-            <p class="font-medium text-gray-900 dark:text-white">
-              34
-            </p>
-
-          </div>
-
-          <div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Promedio general
-            </p>
-
-            <p class="text-3xl font-bold text-blue-700 dark:text-blue-400">
-              82.5
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="p-3 mt-6 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-700 dark:text-blue-400">
-          Los datos académicos son obtenidos mediante la API externa de la institución.
-        </div>
-
-        <button type="button"
-                class="w-full mt-5 px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-          Actualizar datos
-        </button>
-
-      </div>
-
-
-      <!-- MATERIAS -->
-
       <div
-        class="lg:col-span-2 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex items-center justify-between mb-5">
-
-          <div>
-
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-              Materias cursadas
-            </h2>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Último semestre registrado
-            </p>
-
-          </div>
-
-          <span
-            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full dark:bg-green-900 dark:text-green-300">
-                        Sincronizado
-                    </span>
-
-        </div>
-
-        <div class="overflow-x-auto">
-
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-
-            <tr>
-
-              <th class="px-4 py-3">
-                Materia
-              </th>
-
-              <th class="px-4 py-3">
-                Semestre
-              </th>
-
-              <th class="px-4 py-3">
-                Nota
-              </th>
-
-              <th class="px-4 py-3">
-                Estado
-              </th>
-
-            </tr>
-
-            </thead>
-
-            <tbody>
-
-            <tr class="border-b dark:border-gray-700">
-
-              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
-                Psicología Clínica II
-              </td>
-
-              <td class="px-4 py-3">
-                7.º
-              </td>
-
-              <td class="px-4 py-3 font-semibold">
-                88
-              </td>
-
-              <td class="px-4 py-3">
-                                    <span
-                                      class="px-2 py-1 text-xs text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                        Aprobado
-                                    </span>
-              </td>
-
-            </tr>
-
-            <tr class="border-b dark:border-gray-700">
-
-              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
-                Psicología Organizacional
-              </td>
-
-              <td class="px-4 py-3">
-                7.º
-              </td>
-
-              <td class="px-4 py-3 font-semibold">
-                91
-              </td>
-
-              <td class="px-4 py-3">
-                                    <span
-                                      class="px-2 py-1 text-xs text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                        Aprobado
-                                    </span>
-              </td>
-
-            </tr>
-
-            <tr class="border-b dark:border-gray-700">
-
-              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
-                Psicología Social
-              </td>
-
-              <td class="px-4 py-3">
-                7.º
-              </td>
-
-              <td class="px-4 py-3 font-semibold">
-                76
-              </td>
-
-              <td class="px-4 py-3">
-                                    <span
-                                      class="px-2 py-1 text-xs text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                        Aprobado
-                                    </span>
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
-                Evaluación Psicológica
-              </td>
-
-              <td class="px-4 py-3">
-                7.º
-              </td>
-
-              <td class="px-4 py-3 font-semibold">
-                80
-              </td>
-
-              <td class="px-4 py-3">
-                                    <span
-                                      class="px-2 py-1 text-xs text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-                                        Aprobado
-                                    </span>
-              </td>
-
-            </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
+        class="p-3 rounded-xl bg-[var(--color-brand-secondary)]/10 text-[var(--color-brand-secondary)] dark:text-sky-400">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m-4 3h16v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+        </svg>
       </div>
-
     </div>
+    <p class="mt-3 text-xs text-[var(--color-app-text-muted)] truncate">
+      Área Psicología • Centro El Alto
+    </p>
+  </div>
 
+</div>
 
-    <!-- =========================
-     EXPERIENCIA LABORAL
-========================== -->
+<!--CONTENIDO PRINCIPAL EN COLUMNAS-->
+<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 
-    <div
-      class="mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+  <!-- COLUMNA PRINCIPAL (SEGUIMIENTOS RECIENTES Y ACTIVIDADES) -->
+  <div class="xl:col-span-2 space-y-6">
 
+    <!-- ULTIMOS SEGUIMIENTOS REGISTRADOS -->
+    <div class="p-6 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
       <div class="flex items-center justify-between mb-5">
-
         <div>
-
-          <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-            Mi experiencia laboral
+          <h2 class="text-lg font-bold text-[var(--color-app-text)]">
+            Últimos Seguimientos Psicológicos
           </h2>
-
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Registra la experiencia que has adquirido durante tu formación.
+          <p class="text-xs text-[var(--color-app-text-muted)]">
+            Evaluaciones y fichas registradas recientemente
           </p>
-
         </div>
-
-        <button type="button"
-                class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-          + Agregar experiencia
-        </button>
-
-      </div>
-
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-
-        <div class="p-4 border border-gray-200 rounded-lg dark:border-gray-700">
-
-          <h3 class="font-semibold text-gray-900 dark:text-white">
-            Auxiliar de Recursos Humanos
-          </h3>
-
-          <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            Empresa ABC
-          </p>
-
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            Enero 2026 — Julio 2026
-          </p>
-
-          <span
-            class="inline-block mt-3 px-2.5 py-0.5 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">
-                        Psicología Organizacional
-                    </span>
-
-        </div>
-
-        <div class="p-4 border border-dashed border-gray-300 rounded-lg dark:border-gray-600">
-
-          <div class="flex items-center justify-center h-full min-h-32">
-
-            <button type="button" class="text-sm font-medium text-blue-600 hover:underline">
-
-              + Registrar nueva experiencia
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =========================
-     POSTULACIONES
-========================== -->
-
-    <div
-      class="mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-      <div class="flex items-center justify-between mb-5">
-
-        <div>
-
-          <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-            Mis postulaciones
-          </h2>
-
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Consulta el estado de tus candidaturas.
-          </p>
-
-        </div>
-
-        <a href="#" class="text-sm font-medium text-blue-600 hover:underline">
-          Ver todas
+        <a href="#" class="text-xs font-semibold text-[var(--color-brand-primary)] hover:underline">
+          Ver todos los informes →
         </a>
-
       </div>
 
-      <div class="overflow-x-auto">
+      <!-- LISTA DE SEGUIMIENTOS -->
+      <div class="space-y-3">
 
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <!-- ITEM 1 -->
+        <div
+          class="p-4 border border-[var(--color-app-border)] rounded-xl bg-[var(--color-app-bg)]/50 hover:border-[var(--color-brand-primary)]/40 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex gap-3">
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-lg bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] font-bold text-sm">
+                MC
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-[var(--color-app-text)]">
+                  Mateo Quispe Condori
+                </h3>
+                <p class="text-xs text-[var(--color-app-text-muted)]">
+                  Sesión de apoyo conductual y seguimiento académico
+                </p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span
+                      class="px-2 py-0.5 text-[10px] font-semibold text-blue-800 bg-blue-100 dark:bg-blue-900/40 dark:text-blue-300 rounded">
+                      Evaluación Clínica
+                    </span>
+                  <span
+                    class="px-2 py-0.5 text-[10px] font-medium text-[var(--color-app-text-muted)] bg-[var(--color-app-border)] rounded">
+                      18 Oct 2026
+                    </span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="text-xs font-semibold text-[var(--color-brand-primary)] hover:underline">
+              Ver detalle
+            </button>
+          </div>
+        </div>
 
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <!-- ITEM 2 -->
+        <div
+          class="p-4 border border-[var(--color-app-border)] rounded-xl bg-[var(--color-app-bg)]/50 hover:border-[var(--color-brand-primary)]/40 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex gap-3">
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 font-bold text-sm">
+                LV
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-[var(--color-app-text)]">
+                  Luz Mamani Vargas
+                </h3>
+                <p class="text-xs text-[var(--color-app-text-muted)]">
+                  Entrevista con tutores legales y entrega de reporte escolar
+                </p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span
+                      class="px-2 py-0.5 text-[10px] font-semibold text-emerald-800 bg-emerald-100 dark:bg-emerald-900/40 dark:text-emerald-300 rounded">
+                      Visita Familiar
+                    </span>
+                  <span
+                    class="px-2 py-0.5 text-[10px] font-medium text-[var(--color-app-text-muted)] bg-[var(--color-app-border)] rounded">
+                      15 Oct 2026
+                    </span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="text-xs font-semibold text-[var(--color-brand-primary)] hover:underline">
+              Ver detalle
+            </button>
+          </div>
+        </div>
 
-          <tr>
+      </div>
+    </div>
 
-            <th class="px-6 py-3">
-              Puesto
-            </th>
+    <!-- PRÓXIMAS ACTIVIDADES Y TALLERES EXTRACURRICULARES -->
+    <div class="p-6 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-[var(--color-app-text)]">
+            Actividades y Talleres Programados
+          </h2>
+          <p class="text-xs text-[var(--color-app-text-muted)]">
+            Eventos extracurriculares en los que participas como facilitadora
+          </p>
+        </div>
+        <button type="button"
+                class="px-3 py-1.5 text-xs font-semibold text-[var(--color-brand-secondary)] dark:text-sky-400 bg-[var(--color-brand-secondary)]/10 rounded-lg hover:bg-[var(--color-brand-secondary)]/20 transition-colors">
+          + Nueva Actividad
+        </button>
+      </div>
 
-            <th class="px-6 py-3">
-              Empresa
-            </th>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- ACTIVIDAD 1 -->
+        <div class="p-4 border border-[var(--color-app-border)] rounded-xl">
+          <div class="flex items-center justify-between mb-2">
+              <span
+                class="px-2 py-0.5 text-[10px] font-bold text-purple-700 bg-purple-100 dark:bg-purple-900/40 dark:text-purple-300 rounded-full">
+                Taller Presencial
+              </span>
+            <span class="text-[10px] text-[var(--color-app-text-muted)] font-medium">Sábado 24 Oct</span>
+          </div>
+          <h4 class="font-bold text-sm text-[var(--color-app-text)]">
+            Taller de Habilidades Sociales
+          </h4>
+          <p class="mt-1 text-xs text-[var(--color-app-text-muted)]">
+            Dirigido a adolescentes del Centro El Alto.
+          </p>
+          <div
+            class="mt-3 pt-3 border-t border-[var(--color-app-border)] flex justify-between items-center text-xs">
+            <span class="text-[var(--color-app-text-muted)]">Asistentes: 15/20</span>
+            <button class="font-semibold text-[var(--color-brand-primary)] hover:underline">Gestionar</button>
+          </div>
+        </div>
 
-            <th class="px-6 py-3">
-              Fecha
-            </th>
-
-            <th class="px-6 py-3">
-              Estado
-            </th>
-
-            <th class="px-6 py-3">
-              Acción
-            </th>
-
-          </tr>
-
-          </thead>
-
-          <tbody>
-
-          <tr class="border-b dark:border-gray-700">
-
-            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-              Psicólogo auxiliar
-            </td>
-
-            <td class="px-6 py-4">
-              Empresa ABC
-            </td>
-
-            <td class="px-6 py-4">
-              15/09/2026
-            </td>
-
-            <td class="px-6 py-4">
-
-                                <span
-                                  class="px-2.5 py-0.5 text-xs font-medium text-yellow-800 bg-yellow-100 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
-                                    En revisión
-                                </span>
-
-            </td>
-
-            <td class="px-6 py-4">
-
-              <button class="font-medium text-blue-600 hover:underline">
-                Ver detalle
-              </button>
-
-            </td>
-
-          </tr>
-
-
-          <tr class="border-b dark:border-gray-700">
-
-            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-              Pasantía RR.HH.
-            </td>
-
-            <td class="px-6 py-4">
-              Empresa XYZ
-            </td>
-
-            <td class="px-6 py-4">
-              05/09/2026
-            </td>
-
-            <td class="px-6 py-4">
-
-                                <span
-                                  class="px-2.5 py-0.5 text-xs font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                    Recibida
-                                </span>
-
-            </td>
-
-            <td class="px-6 py-4">
-
-              <button class="font-medium text-blue-600 hover:underline">
-                Ver detalle
-              </button>
-
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-              Asistente de Psicología
-            </td>
-
-            <td class="px-6 py-4">
-              Centro ABC
-            </td>
-
-            <td class="px-6 py-4">
-              20/08/2026
-            </td>
-
-            <td class="px-6 py-4">
-
-                                <span
-                                  class="px-2.5 py-0.5 text-xs font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                                    Finalizada
-                                </span>
-
-            </td>
-
-            <td class="px-6 py-4">
-
-              <button class="font-medium text-blue-600 hover:underline">
-                Ver detalle
-              </button>
-
-            </td>
-
-          </tr>
-
-          </tbody>
-
-        </table>
-
+        <!-- ACTIVIDAD 2 -->
+        <div class="p-4 border border-[var(--color-app-border)] rounded-xl">
+          <div class="flex items-center justify-between mb-2">
+              <span
+                class="px-2 py-0.5 text-[10px] font-bold text-amber-700 bg-amber-100 dark:bg-amber-900/40 dark:text-amber-300 rounded-full">
+                Salida de Campo
+              </span>
+            <span class="text-[10px] text-[var(--color-app-text-muted)] font-medium">Viernes 30 Oct</span>
+          </div>
+          <h4 class="font-bold text-sm text-[var(--color-app-text)]">
+            Viaje Recreativo a Achocalla
+          </h4>
+          <p class="mt-1 text-xs text-[var(--color-app-text-muted)]">
+            Integración y convivencia de grupos estudiantiles.
+          </p>
+          <div
+            class="mt-3 pt-3 border-t border-[var(--color-app-border)] flex justify-between items-center text-xs">
+            <span class="text-[var(--color-app-text-muted)]">Logística pendiente</span>
+            <button class="font-semibold text-[var(--color-brand-primary)] hover:underline">Gestionar</button>
+          </div>
+        </div>
       </div>
 
     </div>
 
+  </div>
 
-    <!-- =========================
-     CV
-========================== -->
+  <!-- COLUMNA LATERAL (RESUMEN DE MI PUESTO / ACCIONES RÁPIDAS) -->
+  <div class="space-y-6">
 
-    <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
+    <!-- DETALLE DE MI ASIGNACIÓN LABORAL -->
+    <div class="p-6 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+      <h2 class="mb-4 text-base font-bold text-[var(--color-app-text)] flex items-center gap-2">
+        <svg class="w-5 h-5 text-[var(--color-brand-primary)]" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9" />
+        </svg>
+        Estructura de Asignación
+      </h2>
 
-      <!-- SUBIR CV -->
-
-      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex items-center gap-3 mb-4">
-
-          <div class="p-3 bg-red-100 rounded-lg dark:bg-red-900">
-
-            <svg class="w-6 h-6 text-red-700 dark:text-red-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M7 3h7l5 5v13H7a2 2 0 01-2-2V5a2 2 0 012-2z" />
-            </svg>
-
-          </div>
-
-          <div>
-
-            <h2 class="font-semibold text-gray-900 dark:text-white">
-              Mi Currículum Vitae
-            </h2>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              CV_Juan_Perez.pdf
-            </p>
-
-          </div>
-
+      <div class="space-y-3 text-xs">
+        <div class="p-3 rounded-lg bg-[var(--color-app-bg)] border border-[var(--color-app-border)]">
+          <span class="text-[var(--color-app-text-muted)] block mb-0.5">Centro Operativo:</span>
+          <span class="font-bold text-[var(--color-app-text)] text-sm">Centro El Alto</span>
         </div>
 
-        <div class="flex gap-3">
-
-          <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-            Ver CV
-          </button>
-
-          <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:border-gray-600">
-            Subir PDF
-          </button>
-
+        <div class="p-3 rounded-lg bg-[var(--color-app-bg)] border border-[var(--color-app-border)]">
+          <span class="text-[var(--color-app-text-muted)] block mb-0.5">Área Institucional:</span>
+          <span class="font-bold text-[var(--color-app-text)] text-sm">Psicología y Atención Social</span>
         </div>
 
+        <div class="p-3 rounded-lg bg-[var(--color-app-bg)] border border-[var(--color-app-border)]">
+          <span class="text-[var(--color-app-text-muted)] block mb-0.5">Cargo Titular:</span>
+          <span class="font-bold text-[var(--color-brand-primary)] text-sm">Psicóloga de Acompañamiento</span>
+        </div>
       </div>
 
+      <button type="button"
+              class="w-full mt-4 px-4 py-2 text-xs font-semibold text-[var(--color-brand-secondary)] dark:text-sky-400 border border-[var(--color-brand-secondary)] dark:border-sky-400 rounded-lg hover:bg-[var(--color-brand-secondary)]/10 transition-colors">
+        Ver Ficha Completa de Contrato
+      </button>
+    </div>
 
-      <!-- GENERAR CV -->
+    <!-- ACCIONES RÁPIDAS -->
+    <div class="p-6 bg-[var(--color-app-surface)] border border-[var(--color-app-border)] rounded-xl shadow-sm">
+      <h2 class="mb-3 text-base font-bold text-[var(--color-app-text)]">
+        Acciones Frecuentes
+      </h2>
 
-      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
-        <div class="flex items-center gap-3 mb-4">
-
-          <div class="p-3 bg-green-100 rounded-lg dark:bg-green-900">
-
-            <svg class="w-6 h-6 text-green-700 dark:text-green-300" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
-            </svg>
-
-          </div>
-
-          <div>
-
-            <h2 class="font-semibold text-gray-900 dark:text-white">
-              Generar CV automáticamente
-            </h2>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Utiliza la información registrada en tu perfil.
-            </p>
-
-          </div>
-
-        </div>
-
+      <div class="space-y-2">
         <button type="button"
-                class="w-full px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800">
-          Generar mi CV
+                class="w-full flex items-center justify-between p-3 text-xs font-medium text-[var(--color-app-text)] bg-[var(--color-app-bg)] hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] rounded-lg transition-colors border border-[var(--color-app-border)]">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-[var(--color-brand-primary)]" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              Registrar Nuevo Estudiante
+            </span>
+          <span>→</span>
         </button>
 
+        <button type="button"
+                class="w-full flex items-center justify-between p-3 text-xs font-medium text-[var(--color-app-text)] bg-[var(--color-app-bg)] hover:bg-[var(--color-brand-primary)]/10 hover:text-[var(--color-brand-primary)] rounded-lg transition-colors border border-[var(--color-app-border)]">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-[var(--color-brand-primary)]" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Generar Reporte de Caso
+            </span>
+          <span>→</span>
+        </button>
       </div>
-
     </div>
 
   </div>

@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+
+  <!-- SIDEBAR MODULARIZADO -->
+  <app-aside
+    [isSidebarOpen]="isSidebarOpen()"
+    (closeSidebar)="cerrarSidebarOpcion()">
+  </app-aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="p-4 transition-all duration-300 lg:ml-64 bg-[var(--color-app-bg)] min-h-screen">
+
+    <!-- TOPBAR MODULARIZADO -->
+    <app-top-bar
+      (toggleSidebar)="mostrarMenuAside()">
+    </app-top-bar>
+
+    <!-- Contenido Principal-->
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>
