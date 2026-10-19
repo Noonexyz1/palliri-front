@@ -16,14 +16,22 @@ export const adminLayoutRoutes: Routes = [
   },
   {
     path: 'ficha-estudiante',
-    loadComponent: () => import('../pages/ficha-estudiante/ficha-estudiante').then((m) => m.FichaEstudiante),
+    loadComponent: () =>
+      import('../pages/ficha-estudiante/ficha-estudiante').then((m) => m.FichaEstudiante),
   },
   {
     path: 'actividad-extracurricular',
-    loadComponent: () => import('../pages/actividad-extracurricular/actividad-extracurricular').then((m) => m.ActividadExtracurricular),
+    loadComponent: () =>
+      import('../pages/actividad-extracurricular/actividad-extracurricular').then(
+        (m) => m.ActividadExtracurricular,
+      ),
   },
   {
     path: 'viaje-taller',
     loadComponent: () => import('../pages/viaje-taller/viaje-taller').then((m) => m.ViajeTaller),
+  },
+  {
+    path: 'asignacion-laboral',
+    loadComponent: () => import('../pages/asignacion-laboral/asignacion-laboral').then((m) => m.AsignacionLaboral),
   },
 ];
