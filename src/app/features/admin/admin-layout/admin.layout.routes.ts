@@ -22,4 +22,8 @@ export const adminLayoutRoutes: Routes = [
     path: 'actividad-extracurricular',
     loadComponent: () => import('../pages/actividad-extracurricular/actividad-extracurricular').then((m) => m.ActividadExtracurricular),
   },
+  {
+    path: 'viaje-taller',
+    loadComponent: () => import('../pages/viaje-taller/viaje-taller').then((m) => m.ViajeTaller),
+  },
 ];
