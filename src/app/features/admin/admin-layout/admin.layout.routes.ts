@@ -14,4 +14,8 @@ export const adminLayoutRoutes: Routes = [
     path: 'seguimiento',
     loadComponent: () => import('../pages/seguimiento/seguimiento').then((m) => m.Seguimiento),
   },
+  {
+    path: 'ficha-estudiante',
+    loadComponent: () => import('../pages/ficha-estudiante/ficha-estudiante').then((m) => m.FichaEstudiante),
+  },
 ];
