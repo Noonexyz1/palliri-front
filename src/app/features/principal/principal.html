@@ -8,13 +8,15 @@
       <div class="flex items-center gap-3">
         <!-- LOGO MODO CLARO (se oculta cuando .dark está activo) -->
         <div class="flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl dark:hidden">
-          <img src="/logo_palliri.png" alt="Logo Fundación Palliri" class="w-full h-full object-contain" />
+          <img src="https://raw.githubusercontent.com/Noonexyz1/palliri-front/refs/heads/main/public/logo_palliri.png"
+            alt="Logo Fundación Palliri" class="w-full h-full object-contain" />
         </div>
 
         <!-- LOGO MODO OSCURO (oculto por defecto, se muestra como 'flex' cuando .dark está activo) -->
         <div class="hidden dark:flex items-center px-2 justify-center h-10 overflow-hidden rounded-xl">
-          <img src="/logo_palliri_dark.png" alt="Logo Fundación Palliri Modo Oscuro"
-               class="w-full h-full object-contain" />
+          <img
+            src="https://raw.githubusercontent.com/Noonexyz1/palliri-front/refs/heads/main/public/logo_palliri_dark.png"
+            alt="Logo Fundación Palliri Modo Oscuro" class="w-full h-full object-contain" />
         </div>
       </div>
 
@@ -25,14 +27,12 @@
         <app-theme-toggle></app-theme-toggle>
 
         <!-- Botón Iniciar Sesión Header -->
-        <button
-          (click)="iniciarSesion()"
-          type="button"
+        <button (click)="iniciarSesion()" type="button"
           class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-brand-primary hover:bg-brand-primary-hover transition-all shadow-md cursor-pointer border border-transparent">
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-               xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
           </svg>
           Iniciar Sesión
         </button>
@@ -68,19 +68,16 @@
 
       <!-- Botones de Acción -->
       <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button
-          (click)="iniciarSesion()"
-          type="button"
+        <button (click)="iniciarSesion()" type="button"
           class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold text-white bg-brand-primary hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20 transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center">
           Acceder al Sistema
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-               xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </button>
 
-        <a
-          href="#que-hacemos"
+        <a href="#que-hacemos"
           class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold text-app-text bg-app-surface border border-app-border hover:border-brand-primary/50 transition-all text-center">
           ¿Qué hace el Sistema?
         </a>
